@@ -25,7 +25,7 @@ void update(int node, int l, int r, int pos, int val) {
 
     int m = (l + r) / 2;
     if (pos <= m) update(2*node,l,m,pos,val);
-    else update(2*node + 1,l,m,pos,val);
+    else update(2*node + 1,m+1,r,pos,val);
 
     seg[node] = seg[2*node] + seg[2*node + 1];
 }
@@ -35,8 +35,8 @@ int query(int node, int l, int r, int x, int y) {
     if (l >= x && r <= y) return seg[node];
 
     int m = (l + r) / 2;
-    int ansr = query(2 * node, l, m, x, y);
-    int ansr = query(2*node+1), m + 1, r, x, y);
+    int ansl = query(2 * node, l, m, x, y);
+    int ansr = query(2*node+1, m + 1, r, x, y);
 
     return ansl + ansr;
 }
