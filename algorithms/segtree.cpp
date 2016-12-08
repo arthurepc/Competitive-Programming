@@ -1,8 +1,10 @@
 #include <stdio.h>
 using namespace std;
 
+//SEGMENT TREE IMPLEMENTATION WITH THE SUM OPERATION
+
 const int N = 200000;
-int seg[4 * N];
+int seg[4 * N], arr[N];
 
 void build(int node, int l, int r) {
     if (l == r) {
